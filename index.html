@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <title>Code Quiz</title>
-    <style>
-        h1 {
-          text-align:center;
-        }
-        ul {
-          text-align:center;
-          list-style-type:none;
-          font-size: 40px;
-          border: 10px solid blue
-        }
-    </style>
-    <style>
-        h3 {
-            text-align: left;
-        }
-    </style>
-</head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>Code Quiz</title>
+</head>
+
 
 
 <body>
+  <div class="startBox" data-state="hidden">
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      ul {
+        text-align: center;
+        list-style-type: none;
+        font-size: 40px;
+        border: 10px solid blue
+      }
+    </style>
+    <style>
+      h3 {
+        text-align: left;
+      }
+    </style>
+    
+    
     <h3 class="time"></h3>Time:</h3>
-    <span id="timeLeft">0</span></h4>
- <h1>Anime Quiz</h1>
- <ul>
-   
-    <li>Press to Start!</li>
-    <button class="button">Press to Start Quiz</button>
-  </ul>
+    <span id="timeLeft"></span></h4>
+    <h1>Anime Quiz</h1>
+    <ul>
+
+      <li>Press to Start!</li>
+      <button class="button">Press to Start Quiz</button>
+    </ul>
+  </div>
+
+  <div id="aQuiz"></div>
+  <div id="question"></div>
+  <div class="answerBtn">
+
+    <button id="choiceOne"></button>
+    <button id="choiceTwo"></button>
+    <button id="choiceThree"></button>
+    <button id="choiceFour"></button>
+  </div>
 
   <script src="index.js"></script>
 </body>
+
 </html>

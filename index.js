@@ -1,16 +1,25 @@
 var button = document.querySelector(".button");
 var timeLeft = 0;
+const quizContainer = document.getElementById('aQuiz');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('submitQuiz');
 var timerEl = document.getElementById("timeLeft");
+var choiceOne = document.getElementById("choiceOne");
+var choiceTwo = document.getElementById("choiceTwo");
+var questionEl = document.getElementById("question");
+var choiceThree = document.getElementById("choiceThree");
+var choiceFour = document.getElementById("choiceFour");
+var count = 0;
 var animeQuestions = [
     {
         question: "What animal is Naruto's Jinchuriki?",
         choices:
-            ["A: Fox",
-                "B: Rabbit",
-                "C: Snake",
-                "D: Monkey"],
+            ["Fox",
+                "Rabbit",
+                "Snake",
+                "Monkey"],
 
-        answer: "A: Fox"
+        answer: "Fox"
 
     },
     {
@@ -55,10 +64,43 @@ var animeQuestions = [
     }]
 
 
+
+
 function startQuiz() {
     startTimer()
+    promptQuestions()
+}
 
+function nextQuestion() {
+    count++
+    if (count >= animeQuestions.length) {
+        quizComplete()
+    } else {
+        startQuiz();
+    }
 
+}
+function gameOver() {
+    if (count <= animeQuestions.length) {
+        prompt("Game Over")
+    }
+}
+//  Recieved help from tutor and classmates
+function quizComplete() {
+    clearInterval(timer)
+}
+
+choiceOne.addEventListener("click", nextQuestion);
+choiceTwo.addEventListener("click", nextQuestion);
+choiceThree.addEventListener("click", nextQuestion);
+choiceFour.addEventListener("click", nextQuestion);
+
+function promptQuestions() {
+    questionEl.textContent = animeQuestions[count].question;
+    document.getElementById("choiceOne").textContent = animeQuestions[count].choices[0];
+    document.getElementById("choiceTwo").textContent = animeQuestions[count].choices[1];
+    document.getElementById("choiceThree").textContent = animeQuestions[count].choices[2];
+    document.getElementById("choiceFour").textContent = animeQuestions[count].choices[3];
 }
 
 function startTimer() {
@@ -76,7 +118,6 @@ function startTimer() {
 
     }, 1000);
 }
-
 
 
 button.addEventListener("click", startQuiz);
